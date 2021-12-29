@@ -200,4 +200,17 @@ defmodule Capstone.Accounts do
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
   end
+
+  def authenticate_user_email_password(email, password) do
+    query =
+      from(u in User,
+        inner_join: c in assoc(u, :credential),
+        where: c.email == ^email and c.password == ^password
+      )
+
+    case Repo.one(query) do
+      nil -> {:error, :unathorized}
+      %User{} = user -> {:ok, user}
+    end
+  end
 end

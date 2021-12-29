@@ -4,5 +4,13 @@
 </section>
 
 <section class="row">
-  <%= link "Create an account!", to: Routes.user_path(@conn, :new, [])%>
+
+  <ul>
+    <li>
+      <%= link "Create an account!" , to: Routes.user_path(@conn, :new, [])%>
+    </li>
+    <li>
+      <%= link "Log in!" , to: Routes.session_path(@conn, :new, [])%>
+    </li>
+  </ul>
 </section>

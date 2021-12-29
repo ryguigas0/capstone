@@ -20,6 +20,13 @@ defmodule CapstoneWeb.Router do
     get "/", PageController, :index
 
     resources "/user", UserController
+    resources "/session", SessionController, only: [:new, :create, :delete], singleton: true
+  end
+
+  scope "/chat", CapstoneWeb do
+    pipe_through [:browser, CapstoneWeb.Plugs.AuthenticateUser]
+
+    get "/", TextController, :index
   end
 
   # Other scopes may use custom stacks.
