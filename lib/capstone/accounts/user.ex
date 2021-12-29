@@ -9,6 +9,7 @@ defmodule Capstone.Accounts.User do
   schema "users" do
     field :bio, :string
     field :name, :string
+
     has_one :credential, Credential
 
     timestamps()

@@ -13,13 +13,15 @@
   <%= textarea f, :bio %>
   <%= error_tag f, :bio %>
 
-  <%= label f, :email %>
-  <%= text_input f, :email %>
-  <%= error_tag f, :email %>
+  <%= inputs_for f, :credential, fn cf -> %>
+    <%= label cf, :email %>
+    <%= text_input cf, :email %>
+    <%= error_tag cf, :email %>
 
-  <%= label f, :password %>
-  <%= text_input f, :password %>
-  <%= error_tag f, :password %>
+    <%= label cf, :password %>
+    <%= text_input cf, :password %>
+    <%= error_tag cf, :password %>
+  <% end %>
 
   <div>
     <%= submit "Save" %>
