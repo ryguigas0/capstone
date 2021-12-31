@@ -1,4 +1,16 @@
-<h1>THIS IS A PROTECTED PAGE</h1>
+<h1>Lobby</h1>
+
+
+<div id="messages">
+    <ul>
+
+    </ul>
+</div>
+<div>
+    <input type="text" id="chat-input">
+</div>
+
+
 <div>
     <%= form_for @conn, Routes.session_path(@conn, :delete), [method: :delete, as: :user], fn _f ->%>
         <%= submit "Logout" %>

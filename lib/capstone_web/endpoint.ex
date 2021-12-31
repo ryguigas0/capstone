@@ -47,4 +47,8 @@ defmodule CapstoneWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
   plug CapstoneWeb.Router
+
+  socket "/socket", CapstoneWeb.UserSocket,
+    websocket: true,
+    longpoll: false
 end
