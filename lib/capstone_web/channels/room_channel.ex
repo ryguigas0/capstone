@@ -7,8 +7,8 @@ defmodule CapstoneWeb.RoomChannel do
   # Channels can be used in a request/response fashion
   # by sending replies to requests from the client
   @impl true
-  def handle_in("new_msg", %{"content" => content}, socket) do
-    broadcast!(socket, "new_msg", %{content: content})
+  def handle_in("new_msg", %{"content" => content, "username" => username}, socket) do
+    broadcast!(socket, "new_msg", %{content: content, username: username})
     {:noreply, socket}
   end
 end

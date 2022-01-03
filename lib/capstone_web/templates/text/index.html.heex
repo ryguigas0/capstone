@@ -2,11 +2,9 @@
 
 
 <div id="messages">
-    <ul>
-
-    </ul>
 </div>
 <div>
+    <input type="hidden" id="username" value={ @conn.assigns.user.name }>
     <input type="text" id="chat-input">
 </div>
 
@@ -14,5 +12,5 @@
 <div>
     <%= form_for @conn, Routes.session_path(@conn, :delete), [method: :delete, as: :user], fn _f ->%>
         <%= submit "Logout" %>
-    <% end %>
+            <% end %>
 </div>

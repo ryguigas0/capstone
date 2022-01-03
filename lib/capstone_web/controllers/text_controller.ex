@@ -1,5 +1,4 @@
 defmodule CapstoneWeb.TextController do
-
   use CapstoneWeb, :controller
 
   def index(conn, _params) do
