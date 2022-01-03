@@ -1,10 +1,13 @@
 <h1>Lobby</h1>
 
 
-<div id="messages">
+<div id="messages" class="scroll">
+    <%= for text <- @texts do %>
+    <li><%= parse_text(%{text: text}) %></li>
+<% end %>
 </div>
 <div>
-    <input type="hidden" id="username" value={ @conn.assigns.user.name }>
+    <input type="hidden" id="userID" value={ @conn.assigns.user.id }>
     <input type="text" id="chat-input">
 </div>
 

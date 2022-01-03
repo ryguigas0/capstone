@@ -7,6 +7,8 @@
 # General application configuration
 import Config
 
+config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
+
 config :capstone,
   ecto_repos: [Capstone.Repo],
   generators: [binary_id: true]

@@ -58,12 +58,12 @@ socket.connect()
 // subtopic is its id - in this case 42:
 let channel = socket.channel("room:lobby", {})
 let chatInput = document.querySelector("#chat-input")
-let username = document.querySelector("#username")
+let userID = document.querySelector("#userID")
 let messagesContainer = document.querySelector("#messages")
 
 chatInput.addEventListener("keypress", e => {
   if (e.key === "Enter") {
-    channel.push("new_msg", { content: chatInput.value, username: username.value })
+    channel.push("new_msg", { content: chatInput.value, userID: userID.value })
     chatInput.value = ""
   }
 })
@@ -74,6 +74,7 @@ channel.on("new_msg", payload => {
   let messageItem = document.createElement("li")
   messageItem.innerText = `{${payload.username}} [${today.toLocaleTimeString()}] ${payload.content}`
   messagesContainer.appendChild(messageItem)
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
 })
 
 channel.join()

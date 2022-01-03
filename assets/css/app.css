@@ -87,3 +87,9 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 9em;
+}
